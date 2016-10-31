@@ -1,7 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
   <div class="container" style="width: 600px">
-    <form class="form-signin">
+    <form class="form-signin" name="form" method="POST">
+        {% csrf_token %}
         <h2 class="form-signin-heading">Please login</h2>
         <input type="text" class="form-control" name="username" placeholder="Email Address" required="" autofocus="" /><br>
         <input type="password" class="form-control" name="password" placeholder="Password" required=""/>
