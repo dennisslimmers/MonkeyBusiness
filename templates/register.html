@@ -2,6 +2,7 @@
 {% block content %}
     <div class="container" style="width: 600px">
     <form class="form-signin" action="" method="post">
+        {% csrf_token %}
         <h2 class="form-signin-heading">Please Register</h2>
         <input type="text" class="form-control" name="first_name" placeholder="First Name" required="" autofocus="" /><br>
         <input type="text" class="form-control" name="last_name" placeholder="Last name" required="" autofocus="" /><br>
