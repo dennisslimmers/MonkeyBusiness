@@ -1,13 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
   <div class="container" style="width: 600px">
-    <form class="form-signin" name="form" method="POST">
+    <form action="/test1/" method="post">
         {% csrf_token %}
-        <h2 class="form-signin-heading">Please login</h2>
-        <input type="text" class="form-control" name="username" placeholder="Email Address" required="" autofocus="" /><br>
-        <input type="password" class="form-control" name="password" placeholder="Password" required=""/>
-        <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me<br><br>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+        <input type="text" name="firstname">
+        <input type="submit" value="submit">
     </form>
+  <p>{{ firstname }}</p>
   </div>
 {% endblock content %}

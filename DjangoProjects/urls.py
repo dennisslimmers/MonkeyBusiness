@@ -12,4 +12,5 @@ urlpatterns = [
     url(r'^login/', TemplateView.as_view(template_name='login.html')),
     url(r'^register/', TemplateView.as_view(template_name='register.html')),
     url(r'^admin/', admin.site.urls),
+    url(r'^test1/',views.create)
 ]
