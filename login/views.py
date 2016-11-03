@@ -9,8 +9,8 @@ def index(request):
 def create(request):
     if request.method == "POST":
         print(request.POST)
-        print("test ")
-        firstname = request.POSTs
+        print("test")
+        firstname = request.POST
         return render(request, "index.html", {"firstname": firstname})
     else:
         return redirect("/")
