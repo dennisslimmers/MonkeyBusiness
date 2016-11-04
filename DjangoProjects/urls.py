@@ -15,6 +15,6 @@ urlpatterns = [
     url(r'^register/', TemplateView.as_view(template_name='register.html')),
     url(r'^admin/', admin.site.urls),
     url(r'', include('login.urls')),
-    url(r'^login/$', authviews.login, {'template_name': 'login.html', 'authentication_form': LoginForm}),
-    url(r'testsix/', authviews.login, name='testsix')
+    url(r'^login/$', authviews.login, {'template_name': 'login.html', 'authentication_form': LoginForm}, name="login"),
+    url(r'registerSubmit/', loginviews.create, name="registerSubmit"),
 ]

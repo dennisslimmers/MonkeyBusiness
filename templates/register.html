@@ -1,15 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
     <div class="container" style="width: 600px">
-    <form class="form-signin" action="" method="post">
+    <form class="form-signin" action="{% url "registerSubmit" %}" method="post">
         {% csrf_token %}
         <h2 class="form-signin-heading">Please Register</h2>
-        <input type="text" class="form-control" name="first_name" placeholder="First Name" required="" autofocus="" /><br>
-        <input type="text" class="form-control" name="last_name" placeholder="Last name" required="" autofocus="" /><br>
-        <input type="text" class="form-control" name="username" placeholder="Email Address" required="" autofocus="" /><br>
+        <input type="text" class="form-control" name="username" placeholder="username" required="" autofocus="" /><br>
+        <input type="text" class="form-control" name="email" placeholder="Email Address" required="" autofocus="" /><br>
         <input type="password" class="form-control" name="password" placeholder="Password" required=""/><br>
-        <input type="password" class="form-control" name="repeat_password" placeholder="Repeat Password" required=""/><br>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+
     </form>
   </div>
 {% endblock content %}

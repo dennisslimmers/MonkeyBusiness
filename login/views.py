@@ -8,18 +8,17 @@ from login.forms import LoginForm
 #     return render(request, "login.html")
 
 
-# def create(request):
-#     if request.method == "POST":
-#         print(request.POST)
-#         print("test")
-#         username = request.POST["username"]
-#         password = request.POST["password"]
-#         email = request.POST["email"]
-#         user = User.objects.create_user(username, email, password)
-#         user.save()
-#         return render(request, "index.html", {"username": username, "password": password, "email": email})
-#     else:
-#         return redirect("/")
+def create(request):
+    if request.method == "POST":
+        print(request.POST)
+        username = request.POST["username"]
+        password = request.POST["password"]
+        email = request.POST["email"]
+        user = User.objects.create_user(username, email, password)
+        user.save()
+        return redirect("/login/")
+    else:
+        return redirect("/")
 
 def index(request):
     return render(request, "index.html")
