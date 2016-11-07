@@ -52,11 +52,18 @@
                     <li>
                         <a href="/cursus/">Cursus</a>
                     </li>
-                    <li>
-                        <a href="/login/">Login</a>
-                    <li>
-                        <a href="/register/">Register</a>
-                    </li>
+                   {% if not user.is_authenticated %}
+                        <li>
+                            <a href="/login/">Login</a>
+                        <li>
+                            <a href="/register/">Register</a>
+                        </li>
+                    {% endif %}
+                    {% if user.is_authenticated %}
+                        <li>
+                            <a href="/logout/">logout</a>
+                        </li>
+                    {% endif %}
                     <li>
                         <a href="/test/">Test</a>
                     </li>

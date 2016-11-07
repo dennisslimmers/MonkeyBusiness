@@ -17,4 +17,5 @@ urlpatterns = [
     url(r'', include('login.urls')),
     url(r'^login/$', authviews.login, {'template_name': 'login.html', 'authentication_form': LoginForm}, name="login"),
     url(r'registerSubmit/', loginviews.create, name="registerSubmit"),
+    url(r'logout/', authviews.logout, name="logout"),
 ]
