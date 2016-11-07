@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+    {% if user.is_superuser %}
+        <div class="container">
+            <form method="post" action="" style="width: 500px">
+                {% csrf_token %}
+                <h1>Add a new course!</h1><br>
+                <label>*Course title:</label><input type="text" class="form-control" name="course_title" placeholder=""><br>
+                <label>*Course language:</label><input type="text" class="form-control" name="course_lan" placeholder=""><br>
+                <label>*Course price:</label><input type="text" class="form-control" name="course_price" placeholder=""><br>
+                <label>Course description:</label>
+                <textarea class="form-control" rows="5" name="course_description" placeholder=""></textarea><br>
+                <input type="submit" class="btn btn-default" value="Add course">
+            </form>
+        </div>
+    {% else %}
+        <div class="container">
+            <h1>No permission!</h1>
+        </div>
+    {% endif %}
+{% endblock content %}

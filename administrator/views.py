@@ -24,7 +24,11 @@ def makeUserStaff(request):
 
     for key in array_keys:
         with connection.cursor() as cursor:
-            cursor.execute("UPDATE auth_user SET is_staff = 1 WHERE username = '"+ key +"'")
+            cursor.execute("SELECT is_staff FROM auth_user WHERE username = '" + key + "'")
+            is_staff = cursor.fetchone()
+
+            if not is_staff[0]:
+                cursor.execute("UPDATE auth_user SET is_staff = 1 WHERE username = '"+ key +"'")
 
     return render(request, "test.html", {"post": array_keys})
 
