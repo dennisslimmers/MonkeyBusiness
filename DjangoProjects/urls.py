@@ -5,6 +5,7 @@ from login.forms import LoginForm
 from django.contrib.auth import views as authviews
 from django.core.urlresolvers import reverse
 from login import views as loginviews
+from administrator import views as adminviews
 
 urlpatterns = [
     url(r'^index/', TemplateView.as_view(template_name='index.html')),
@@ -18,4 +19,5 @@ urlpatterns = [
     url(r'^login/$', authviews.login, {'template_name': 'login.html', 'authentication_form': LoginForm}, name="login"),
     url(r'registerSubmit/', loginviews.create, name="registerSubmit"),
     url(r'logout/', authviews.logout, name="logout"),
+    url(r'administrator',adminviews.renderadministrator),
 ]
