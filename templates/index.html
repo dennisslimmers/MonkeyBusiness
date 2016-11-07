@@ -1,16 +1,82 @@
 {% extends "base.html" %}
     {% block content %}
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <h1>MonkeyBusiness</h1>
-
-                <p>name: {{ username }}</p>
-                <p>Last name: {{ password }}</p>
-                <p>email: {{ email }}</p>
+    <section id="download" class="download bg-primary text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <h2 class="section-heading">Learn a new language!</h2>
+                    <p>Our app is available on any mobile device! Register now to get started!</p>
+                </div>
             </div>
         </div>
-        <!-- /.row -->
-    </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="section-heading">
+                        <h2>Languages to learn</h2>
+                        <p class="text-muted">Check out what you can do with this app!</p>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+                <div class="col-md-12">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="feature-item">
+                                    <i class="icon-screen-smartphone text-primary"></i>
+                                    <h3>Amazigh</h3>
+                                    <img class="img-responsive" src="https://intercontinentalcry.org/wp-content/uploads/2013/03/1280px-Amazigh_Flag.jpg">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="feature-item">
+                                    <i class="icon-camera text-primary"></i>
+                                    <h3>Fries</h3>
+                                    <img class="img-responsive" src="https://www.vlaggenclub.nl/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/f/r/friese-friesche-vlag-friesland-provincie-vlaggenclub_1_1_1_1_1.gif">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="feature-item">
+                                    <i class="icon-camera text-primary"></i>
+                                    <h3>Spanish</h3>
+                                    <img class="img-responsive" src="https://upload.wikimedia.org/wikipedia/en/thumb/9/9a/Flag_of_Spain.svg/1280px-Flag_of_Spain.svg.png">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <section class="cta">
+        <div class="cta-content">
+            <div class="container">
+                <h2>Stop waiting.<br>Start learning.</h2>
+                <a href="/register/" class="btn btn-outline btn-xl page-scroll">Let's Get Started!</a>
+            </div>
+        </div>
+        <div class="overlay"></div>
+    </section>
+
+    <section id="contact" class="contact bg-primary">
+        <div class="container">
+            <h2>We <i class="fa fa-heart"></i> new friends!</h2>
+            <ul class="list-inline list-social">
+                <li class="social-twitter">
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                </li>
+                <li class="social-facebook">
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                </li>
+                <li class="social-google-plus">
+                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                </li>
+            </ul>
+        </div>
+    </section>
     {% endblock content %}
 
