@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+{% if user.is_superuser %}
+    <form action="{% url "makestaff" %}" method="post">
+        {% csrf_token %}
+         <table class="table" style="width: 400px;">
+                    {% for user in users %}
+                        <tr>
+                            <td><a href="#">username: {{ user.get_username }}</a></td>
+                            <td>is moderator: {{ user.is_staff }}</td>
+                            <td><input type="checkbox" name="{{ user.get_username }}"></td>
+                        </tr>
+                    {% endfor %}
+         </table>
+        <input class="btn btn-default" type="submit" value="Save changes">
+    </form>
+    {% else %}
+    <h1>No permission</h1>
+    {% endif %}
+{% endblock %}

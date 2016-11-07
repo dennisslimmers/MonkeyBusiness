@@ -19,5 +19,7 @@ urlpatterns = [
     url(r'^login/$', authviews.login, {'template_name': 'login.html', 'authentication_form': LoginForm}, name="login"),
     url(r'registerSubmit/', loginviews.create, name="registerSubmit"),
     url(r'logout/', authviews.logout, name="logout"),
-    url(r'administrator',adminviews.renderadministrator),
+    url(r'administrator/',adminviews.renderAdministrator),
+    url(r'editusers/', adminviews.renderEditUsers),
+    url(r'makestaff/', adminviews.makeUserStaff, name="makestaff"),
 ]
