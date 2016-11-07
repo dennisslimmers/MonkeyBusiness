@@ -1,7 +1,21 @@
 {% extends "base.html" %}
     {% block content %}
         {% if user.is_superuser %}
-        <h1>ADMIN</h1>
+            <div class="container">
+                <h1>Administrator</h1>
+
+                <table class="table" style="width: 400px;">
+                    {% for user in users %}
+                        <tr>
+                            <td>username: {{ user.get_username }}</td>
+                            <td>is moderator: {{ user.is_staff }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+
+                <h1>Courses</h1>
+                <button type="button" class="btn btn-default">Add a new course</button>
+            </div>
         {% else %}
             <h1>No  permission</h1>
         {% endif %}
