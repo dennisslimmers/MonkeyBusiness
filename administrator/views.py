@@ -42,7 +42,6 @@ def makeUserStaff(request):
                 if is_staff[0]:
                     cursor.execute("UPDATE auth_user SET is_staff = 0 WHERE username = '"+ key +"'")
 
-
     # return render(request, "test.html", {"post": array_keys, "fpost": request.POST})
     return redirect("administrator")
 

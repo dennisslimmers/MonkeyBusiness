@@ -1,28 +1,31 @@
 {% extends "base.html" %}
     {% block content %}
         {% if user.is_superuser %}
-                <section id="download" class="download bg-primary text-center">
-                    <div class="container">
-                        <div class="row">
-                            <h1>Administrator</h1>
-                        </div>
+            <section id="download" class="download bg-primary text-center">
+                <div class="container">
+                    <div class="row">
+                        <h1>Administrator</h1>
                     </div>
-                </section>
-
+                </div>
+            </section>
 
             <section id="features" class="features">
                 <div class="container">
                     <div class="row">
                         <center>
                             <h1>Users</h1>
-                            <table class="table" style="width: 400px;">
+                            <table class="table table-striped table-hover" style="width: 500px;">
                                 {% for user in users %}
                                     <tr>
+                                        <td>id: {{ user.id }}</td>
                                         <td>username: {{ user.get_username }}</td>
                                         <td>is moderator: {{ user.is_staff }}</td>
+                                        <td>is admin: {{ user.is_superuser }}</td>
                                     </tr>
                                 {% endfor %}
                             </table>
+                            <a href="/editusers/"><button type="button" class="btn btn-default">Edit users</button></a>
+                            <br>
 
                             <h1>Courses</h1>
                             <a href="/addcourse/"><button type="button" class="btn btn-default">Add a new course</button></a>
