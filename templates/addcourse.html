@@ -12,7 +12,7 @@
             <div class="container">
                 <div class="row">
                     <center>
-                        <form method="post" action="" style="width: 500px">
+                        <form method="post" action="{% url "insertcourse" %}" style="width: 500px">
                             {% csrf_token %}
                             <h1>Add a new course!</h1><br>
                             <label>*Course title:</label><input type="text" class="form-control" name="course_title" placeholder=""><br>

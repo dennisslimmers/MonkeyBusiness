@@ -46,3 +46,22 @@ def makeUserStaff(request):
     # return render(request, "test.html", {"post": array_keys, "fpost": request.POST})
     return redirect("administrator")
 
+
+def addCourse(request):
+    post = request.POST.copy()
+    del post["csrfmiddlewaretoken"]
+
+    try:
+        title = post["course_title"]
+        lang = post["course_lan"]
+        price = post["course_price"]
+        descr = post["course_description"]
+    except NameError:
+        print("Post varaibles not defined")
+
+    with connection.cursor() as cursor:
+        cursor.execute("INSERT INTO courses VALUES(NULL, '"+title+"','"+lang+"','"+price+"','"+descr+"')")
+
+
+    return redirect("administrator")
+

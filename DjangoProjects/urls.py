@@ -22,4 +22,5 @@ urlpatterns = [
     url(r'administrator/',adminviews.renderAdministrator, name="administrator"),
     url(r'editusers/', adminviews.renderEditUsers, name="editusers"),
     url(r'makestaff/', adminviews.makeUserStaff, name="makestaff"),
+    url(r'insertcourse/', adminviews.addCourse, name="insertcourse")
 ]
