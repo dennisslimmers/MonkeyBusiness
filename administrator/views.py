@@ -64,3 +64,18 @@ def addCourse(request):
 
     return redirect("administrator")
 
+def passwordSubmitAdmin(request):
+    if request.method == "POST":
+        username = request.POST["username"]
+        passwordI = request.POST["passwordI"]
+        passwordII = request.POST["passwordII"]
+        if passwordI == passwordII:
+            u = User.objects.get(username=username)
+            u.set_password(passwordI)
+            u.save()
+            return redirect("home")
+        else:
+            return redirect("home")
+    else:
+        return redirect("home")
+

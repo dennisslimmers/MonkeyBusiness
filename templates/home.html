@@ -11,9 +11,17 @@
         <section id="features" class="features">
             <div class="container">
                 <div class="row">
-                    <center>
-                        <p>Logged in as: {{ user.get_username }}</p>
-                    </center>
+                    <div class="col-sm-6">
+                    </div>
+                    <div class="col-sm-6">
+                        <form class="form-signin" action="{% url "passwordSubmit" %}" method="post">
+                            {% csrf_token %}
+                            <p class="form-signin-heading">Change password: {{ user.get_username }}</p>
+                            <input type="password" class="form-control" name="passwordI" placeholder="Password" required="" autofocus="" /><br>
+                            <input type="password" class="form-control" name="passwordII" placeholder="Password" required=""/><br>
+                            <button class="btn btn-lg btn-primary btn-block" type="submit">Change password</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </section>

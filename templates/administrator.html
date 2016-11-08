@@ -33,6 +33,24 @@
                     </div>
                 </div>
             </section>
+                    <section id="features" class="features">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                    </div>
+                    <div class="col-sm-6">
+                        <form class="form-signin" action="{% url "passwordSubmitAdmin" %}" method="post">
+                            {% csrf_token %}
+                            <p class="form-signin-heading">Change password</p>
+                            <input type="text" class="form-control" name="username" placeholder="Username" required="" autofocus="" /><br>
+                            <input type="password" class="form-control" name="passwordI" placeholder="Password" required="" autofocus="" /><br>
+                            <input type="password" class="form-control" name="passwordII" placeholder="Password" required=""/><br>
+                            <button class="btn btn-lg btn-primary btn-block" type="submit">Change password</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
         {% else %}
             <h1>No  permission</h1>
         {% endif %}

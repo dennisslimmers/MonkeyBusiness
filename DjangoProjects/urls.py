@@ -18,9 +18,11 @@ urlpatterns = [
     url(r'', include('login.urls')),
     url(r'^login/$', authviews.login, {'template_name': 'login.html', 'authentication_form': LoginForm}, name="login"),
     url(r'registerSubmit/', loginviews.create, name="registerSubmit"),
+    url(r'passwordSubmit/', loginviews.changePassword, name="passwordSubmit"),
     url(r'logout/', authviews.logout, name="logout"),
     url(r'addcourse/', adminviews.renderAddCourse),
     url(r'administrator/',adminviews.renderAdministrator, name="administrator"),
+    url(r'passwordSubmitAdmin/', adminviews.passwordSubmitAdmin, name="passwordSubmitAdmin"),
     url(r'editusers/', adminviews.renderEditUsers, name="editusers"),
     url(r'makestaff/', adminviews.makeUserStaff, name="makestaff"),
     url(r'insertcourse/', adminviews.addCourse, name="insertcourse")
