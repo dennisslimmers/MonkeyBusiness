@@ -21,5 +21,6 @@ urlpatterns = [
     url(r'logout/', authviews.logout, name="logout"),
     url(r'administrator/',adminviews.renderAdministrator),
     url(r'editusers/', adminviews.renderEditUsers),
+    url(r'addcourse/', adminviews.renderAddCourse),
     url(r'makestaff/', adminviews.makeUserStaff, name="makestaff"),
 ]

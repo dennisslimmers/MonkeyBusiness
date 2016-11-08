@@ -15,6 +15,9 @@ def renderEditUsers(request):
     users = User.objects.all()
     return render(request, "editusers.html", {"users": users})
 
+def renderAddCourse(request):
+    return render(request, "addcourse.html")
+
 
 def makeUserStaff(request):
     post = request.POST.copy()
@@ -30,5 +33,5 @@ def makeUserStaff(request):
             if not is_staff[0]:
                 cursor.execute("UPDATE auth_user SET is_staff = 1 WHERE username = '"+ key +"'")
 
-    return render(request, "test.html", {"post": array_keys})
+    return render(request, "editusers.html")
 

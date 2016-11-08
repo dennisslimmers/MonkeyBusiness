@@ -1,6 +1,20 @@
 {% extends "base.html" %}
 {% block content %}
-    <h1>HOME</h1>
-    <h1>{{ user.get_username }}</h1>
+    <section id="download" class="download bg-primary text-center">
+            <div class="container">
+                <div class="row">
+                    <h1>Home</h1>
+                </div>
+            </div>
+        </section>
+        <section id="features" class="features">
+            <div class="container">
+                <div class="row">
+                    <center>
+                        <p>Logged in as: {{ user.get_username }}</p>
+                    </center>
+                </div>
+            </div>
+        </section>
 
 {% endblock %}
