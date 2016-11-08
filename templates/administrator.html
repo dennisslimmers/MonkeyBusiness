@@ -3,7 +3,8 @@
         {% if user.is_superuser %}
             <div class="container">
                 <h1>Administrator</h1>
-
+                <br>
+                <h1>Users</h1>
                 <table class="table" style="width: 400px;">
                     {% for user in users %}
                         <tr>
@@ -12,6 +13,7 @@
                         </tr>
                     {% endfor %}
                 </table>
+                <a  href="{% url "editusers" %}"><button type="button" class="btn btn-default">Edit users</button></a>
 
                 <h1>Courses</h1>
                 <button type="button" class="btn btn-default">Add a new course</button>

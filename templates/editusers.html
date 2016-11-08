@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 {% if user.is_superuser %}
+    <div  style="padding-top:100px">
     <form action="{% url "makestaff" %}" method="post">
         {% csrf_token %}
         <table class="table" style="width: 400px;">
@@ -8,12 +9,16 @@
                 <tr>
                     <td><a href="#">username: {{ user.get_username }}</a></td>
                     <td>is moderator: {{ user.is_staff }}</td>
-                    <td><input type="checkbox" name="{{ user.get_username }}" {% if user.is_staff %} checked {% endif %}></td>
+                    <td>
+                         <input class="hBox" type="hidden" value="1" name="{{ user.get_username }}">
+                        <input  class="vBox" value="2" type="checkbox" name="{{ user.get_username }}" {% if user.is_staff %} checked {% endif %}>
+                    </td>
                 </tr>
             {% endfor %}
         </table>
         <input class="btn btn-default" type="submit" value="Save changes">
     </form>
+    </div>
     {% else %}
         <h1>No permission</h1>
     {% endif %}
