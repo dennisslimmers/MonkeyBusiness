@@ -49,9 +49,12 @@
                         <a class="page-scroll" href="/register/">Register</a>
                     </li>
                     {% endif %}
-                    {% if user.is_authenticated %}
                     <li>
                         <a class="page-scroll" href="/about/">About</a>
+                    </li>
+                    {% if user.is_authenticated %}
+                    <li>
+                        <a class="page-scroll" href="/logout/">Logout</a>
                     </li>
                     {% endif %}
                 </ul>
