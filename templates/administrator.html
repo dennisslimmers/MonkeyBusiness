@@ -1,23 +1,35 @@
 {% extends "base.html" %}
     {% block content %}
         {% if user.is_superuser %}
-            <div class="container">
-                <h1>Administrator</h1>
-                <br>
-                <h1>Users</h1>
-                <table class="table" style="width: 400px;">
-                    {% for user in users %}
-                        <tr>
-                            <td>username: {{ user.get_username }}</td>
-                            <td>is moderator: {{ user.is_staff }}</td>
-                        </tr>
-                    {% endfor %}
-                </table>
-                <a  href="{% url "editusers" %}"><button type="button" class="btn btn-default">Edit users</button></a>
+                <section id="download" class="download bg-primary text-center">
+                    <div class="container">
+                        <div class="row">
+                            <h1>Administrator</h1>
+                        </div>
+                    </div>
+                </section>
 
-                <h1>Courses</h1>
-                <button type="button" class="btn btn-default">Add a new course</button>
-            </div>
+
+            <section id="features" class="features">
+                <div class="container">
+                    <div class="row">
+                        <center>
+                            <h1>Users</h1>
+                            <table class="table" style="width: 400px;">
+                                {% for user in users %}
+                                    <tr>
+                                        <td>username: {{ user.get_username }}</td>
+                                        <td>is moderator: {{ user.is_staff }}</td>
+                                    </tr>
+                                {% endfor %}
+                            </table>
+
+                            <h1>Courses</h1>
+                            <a href="/addcourse/"><button type="button" class="btn btn-default">Add a new course</button></a>
+                        </center>
+                    </div>
+                </div>
+            </section>
         {% else %}
             <h1>No  permission</h1>
         {% endif %}

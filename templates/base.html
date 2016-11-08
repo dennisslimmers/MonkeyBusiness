@@ -41,15 +41,22 @@
                     <li>
                         <a class="page-scroll" href="/index/#features">Languages</a>
                     </li>
+                    {% if not user.is_authenticated %}
                     <li>
                         <a class="page-scroll" href="/login/">Login</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="/register/">Register</a>
                     </li>
+                    {% endif %}
                     <li>
                         <a class="page-scroll" href="/about/">About</a>
                     </li>
+                    {% if user.is_authenticated %}
+                    <li>
+                        <a class="page-scroll" href="/logout/">Logout</a>
+                    </li>
+                    {% endif %}
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

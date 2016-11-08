@@ -15,13 +15,15 @@ def renderEditUsers(request):
     users = User.objects.all()
     return render(request, "editusers.html", {"users": users})
 
+def renderAddCourse(request):
+    return render(request, "addcourse.html")
+
 
 def makeUserStaff(request):
     post = request.POST.copy()
     del post["csrfmiddlewaretoken"]
 
     array_keys = list(post.keys())
-
 
     for key in array_keys:
         xpost = request.POST[key]
