@@ -26,7 +26,6 @@ def makeUserStaff(request):
     array_keys = list(post.keys())
 
     for key in array_keys:
-        xpost = request.POST[key]
         if request.POST[key] is '2':
             with connection.cursor() as cursor:
                 cursor.execute("SELECT is_staff FROM auth_user WHERE username = '" + key + "'")
