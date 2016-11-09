@@ -11,14 +11,7 @@
         <section id="features" class="features">
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-6">
-                        <form class="form-signin" action="{% url "pdf" %}" method="post">
-                            {% csrf_token %}
-                            <p class="form-signin-heading">PDF</p>
-                            <button class="btn btn-lg btn-primary btn-block" type="submit">Get PDF</button>
-                        </form>
-                    </div>
-                    <div class="col-sm-6">
+                    <div class="col-lg-offset-3 col-lg-6">
                         <form class="form-signin" action="{% url "passwordSubmit" %}" method="post">
                             {% csrf_token %}
                             <p class="form-signin-heading">Change password: {{ user.get_username }}</p>
@@ -27,6 +20,7 @@
                             <button class="btn btn-lg btn-primary btn-block" type="submit">Change password</button>
                         </form>
                     </div>
+                    <div class="col-sm-6"></div>
                 </div>
             </div>
         </section>
@@ -41,9 +35,9 @@
         <section id="features" class="features">
             <div class="container">
                 <div class="row">
-                    <center>
+                    <div class="col-lg-offset-3 col-lg-6">
                         <a href="/login/">Login here!</a>
-                    </center>
+                    </div>
                 </div>
             </div>
         </section>

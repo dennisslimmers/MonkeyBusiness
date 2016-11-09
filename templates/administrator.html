@@ -26,6 +26,17 @@
                             </table>
                             <a href="/editusers/"><button type="button" class="btn btn-default">Edit users</button></a>
                         </div>
+                    <div class="col-lg-6">
+                        {% for purchase in purchases %}
+                        <form action="{% url "pdf" %}" method="post">
+                            {% csrf_token %}
+                            <input type="hidden" value="{{ purchase.1 }}" name="lang">
+                            <input type="hidden" value="{{ purchase.2 }}" name="price">
+                            <p>{{ purchase.1 }}: not paid!</p>
+                            <input type="submit" class="btn btn-default" value="get pdf">
+                        </form><br>
+                    {% endfor %}
+                    </div>
                     </div>
                 </div>
             </section>

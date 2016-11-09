@@ -8,7 +8,15 @@ from django import template
 @login_required(login_url="login/")
 def renderAdministrator(request):
     users = User.objects.all()
-    return render(request, "administrator.html", {"users": users})
+    purchases = []
+    user = request.user
+    userid = str(user.id)
+
+    with connection.cursor() as cursor:
+        cursor.execute("SELECT * FROM purchases")
+        purchases = cursor.fetchall()
+
+    return render(request, "administrator.html", {"users": users,"purchases": purchases})
 
 
 @login_required(login_url="login/")
@@ -138,7 +146,7 @@ def purchaseCourse(request):
         print("Post varaibles not defined")
 
     with connection.cursor() as cursor:
-        cursor.execute("INSERT INTO purchases VALUES('"+courseid+"', '"+userid+"', '"+lang+"', '"+price+"')")
+        cursor.execute("INSERT INTO purchases VALUES('"+userid+"', '"+lang+"', '"+price+"', 'NULL', "+courseid+")")
 
     return redirect("home")
 
