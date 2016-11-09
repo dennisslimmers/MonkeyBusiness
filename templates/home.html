@@ -12,6 +12,11 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-6">
+                        <form class="form-signin" action="{% url "pdf" %}" method="post">
+                            {% csrf_token %}
+                            <p class="form-signin-heading">PDF</p>
+                            <button class="btn btn-lg btn-primary btn-block" type="submit">Get PDF</button>
+                        </form>
                     </div>
                     <div class="col-sm-6">
                         <form class="form-signin" action="{% url "passwordSubmit" %}" method="post">

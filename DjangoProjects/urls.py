@@ -20,6 +20,7 @@ urlpatterns = [
     url(r'^login/$', authviews.login, {'template_name': 'login.html', 'authentication_form': LoginForm}, name="login"),
     url(r'registerSubmit/', loginviews.create, name="registerSubmit"),
     url(r'passwordSubmit/', loginviews.changePassword, name="passwordSubmit"),
+    url(r'pdf/', loginviews.pdfBuilder, name="pdf"),
     url(r'logout/', authviews.logout, name="logout"),
     url(r'addcourse/', adminviews.renderAddCourse),
     url(r'administrator/',adminviews.renderAdministrator, name="administrator"),
