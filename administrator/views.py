@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.db import connection
+from django import template
 
 
 @login_required(login_url="login/")
@@ -21,8 +22,7 @@ def renderAddCourse(request):
 
 
 def renderCourses(request):
-    courses = []
-    langs = []
+    convertedlangs = []
 
     with connection.cursor() as cursor:
         cursor.execute("SELECT * FROM courses")
@@ -30,7 +30,14 @@ def renderCourses(request):
         cursor.execute("SELECT lang FROM courses")
         langs = cursor.fetchall()
 
-    return render(request, "cursus.html", {"courses": courses, "langs": langs})
+    counter = 0
+    for lang in langs:
+        convertedlangs.insert(counter, lang[0])
+
+        # increment counter by 1
+        counter = counter + 1
+
+    return render(request, "cursus.html", {"courses": courses, "langs": convertedlangs})
 
 
 def renderViewCourse(request, lang="empty"):

@@ -13,17 +13,16 @@
             <div class="row">
                 <center>
                     <table class="table table-responsive">
+                    {% load poll_extras  %}
                     {% for course in courses %}
                         <tr>
-                            <td>{{ forloop.counter0  }}</td>
                             {% for attr in course %}
                                 <td>{{ attr }}</td>
                             {% endfor %}
-                            <td><a href="/viewcourse/{{ forloop.counter0 }}/"><button class="btn btn-default">Purchase</button></a></td>
+                            <td><a href="/viewcourse/{{ langs|get_at_index:forloop.counter0 }}/"><button class="btn btn-default">Purchase</button></a></td>
                         </tr>
                     {% endfor %}
                     </table>
-                    <p>{{ langs }}</p>
                 </center>
             </div>
         </div>
