@@ -49,8 +49,8 @@ def home(request):
 def pdfBuilder(request):
     username = request.user
     date = datetime.now().strftime('%Y-%m-%d')
-    amount = ""
-    product = ""
+    amount = request.POST["price"]
+    product = request.POST["lang"]
 
     # Create the HttpResponse object with the appropriate PDF headers.
     response = HttpResponse(content_type='application/pdf')

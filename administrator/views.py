@@ -17,6 +17,19 @@ def renderEditUsers(request):
     return render(request, "editusers.html", {"users": users})
 
 
+@login_required(login_url="login/")
+def renderPurchases(request):
+    purchases = []
+    user = request.user
+    userid = str(user.id)
+
+    with connection.cursor() as cursor:
+        cursor.execute("SELECT * FROM purchases WHERE userid = " + userid)
+        purchases = cursor.fetchall()
+
+    return render(request, "purchases.html", {"purchases": purchases})
+
+
 def renderAddCourse(request):
     return render(request, "addcourse.html")
 

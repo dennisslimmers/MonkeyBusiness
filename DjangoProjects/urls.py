@@ -24,6 +24,7 @@ urlpatterns = [
     url(r'pdf/', loginviews.pdfBuilder, name="pdf"),
     url(r'logout/', authviews.logout, name="logout"),
     url(r'addcourse/', adminviews.renderAddCourse),
+    url(r'purchases/', adminviews.renderPurchases),
     url(r'administrator/',adminviews.renderAdministrator, name="administrator"),
     url(r'passwordSubmitAdmin/', adminviews.passwordSubmitAdmin, name="passwordSubmitAdmin"),
     url(r'editusers/', adminviews.renderEditUsers, name="editusers"),
