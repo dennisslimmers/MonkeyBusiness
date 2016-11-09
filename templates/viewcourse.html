@@ -15,7 +15,14 @@
         <div class="container">
             <div class="row">
                 <h1>{{ lang }}</h1>
-                <button class="btn btn-default">purchase</button>
+                <form action="{% url "purchasecourse" %}" method="post">
+                    {% csrf_token %}
+                    <input type="submit" class="btn btn-default" value="purchase"/>
+                    <input type="hidden" value="{{ course.0.0 }}" name="courseid">
+                    <input type="hidden" value="{{ user.id }}" name="userid">
+                    <input type="hidden" value="{{ course.0.2 }}" name="lang">
+                    <input type="hidden" value="{{ course.0.3 }}" name="price">
+                </form>
             </div>
         </div>
     </section>

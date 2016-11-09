@@ -111,3 +111,22 @@ def passwordSubmitAdmin(request):
     else:
         return redirect("home")
 
+
+def purchaseCourse(request):
+    post = request.POST.copy()
+    del post["csrfmiddlewaretoken"]
+
+    try:
+        courseid = post["courseid"]
+        userid = post["userid"]
+        lang = post["lang"]
+        price = post["price"]
+    except NameError:
+        print("Post varaibles not defined")
+
+    with connection.cursor() as cursor:
+        cursor.execute("INSERT INTO purchases VALUES('"+courseid+"', '"+userid+"', '"+lang+"', '"+price+"')")
+
+    return redirect("home")
+
+

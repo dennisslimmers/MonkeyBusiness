@@ -15,6 +15,7 @@ urlpatterns = [
     url(r'^logintest/', TemplateView.as_view(template_name='login.html')),
     url(r'^register/', TemplateView.as_view(template_name='register.html')),
     url(r'^admin/', admin.site.urls),
+    url(r'purchasecourse/', adminviews.purchaseCourse, name="purchasecourse"),
     url(r'^viewcourse/(?P<lang>\w+)', adminviews.renderViewCourse, name="viewcourse"),
     url(r'', include('login.urls')),
     url(r'^login/$', authviews.login, {'template_name': 'login.html', 'authentication_form': LoginForm}, name="login"),
