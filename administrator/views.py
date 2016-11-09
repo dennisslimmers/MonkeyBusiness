@@ -15,8 +15,33 @@ def renderEditUsers(request):
     users = User.objects.all()
     return render(request, "editusers.html", {"users": users})
 
+
 def renderAddCourse(request):
     return render(request, "addcourse.html")
+
+
+def renderCourses(request):
+    courses = []
+    langs = []
+
+    with connection.cursor() as cursor:
+        cursor.execute("SELECT * FROM courses")
+        courses = cursor.fetchall()
+        cursor.execute("SELECT lang FROM courses")
+        langs = cursor.fetchall()
+
+    return render(request, "cursus.html", {"courses": courses, "langs": langs})
+
+
+def renderViewCourse(request, lang="empty"):
+    course = []
+
+    with connection.cursor() as cursor:
+        cursor.execute("SELECT * FROM courses WHERE lang = '" + lang + "'")
+        course = cursor.fetchall()
+
+    return render(request, "viewcourse.html", {"course": course, "lang": lang})
+
 
 
 def makeUserStaff(request):
@@ -61,8 +86,8 @@ def addCourse(request):
     with connection.cursor() as cursor:
         cursor.execute("INSERT INTO courses VALUES(NULL, '"+title+"','"+lang+"','"+price+"','"+descr+"')")
 
-
     return redirect("administrator")
+
 
 def passwordSubmitAdmin(request):
     if request.method == "POST":

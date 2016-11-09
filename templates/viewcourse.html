@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+
+{% extends "base.html" %}
+{% block content %}
+    <section id="download" class="download bg-primary text-center">
+        <div class="container">
+            <div class="row">
+                <h1>{{ lang }}</h1>
+                <button class="btn btn-default">purchase</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <div class="row">
+                <center>
+                    {% for attr in course %}
+                        {% for att in attr %}
+                            <p>{{ att }}</p>
+                        {% endfor %}
+                    {% endfor %}
+                </center>
+            </div>
+        </div>
+    </section>
+{% endblock content %}

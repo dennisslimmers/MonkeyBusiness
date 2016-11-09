@@ -12,7 +12,18 @@
         <div class="container">
             <div class="row">
                 <center>
-                    <h1>Courses</h1>
+                    <table class="table table-responsive">
+                    {% for course in courses %}
+                        <tr>
+                            <td>{{ forloop.counter0  }}</td>
+                            {% for attr in course %}
+                                <td>{{ attr }}</td>
+                            {% endfor %}
+                            <td><a href="/viewcourse/{{ forloop.counter0 }}/"><button class="btn btn-default">Purchase</button></a></td>
+                        </tr>
+                    {% endfor %}
+                    </table>
+                    <p>{{ langs }}</p>
                 </center>
             </div>
         </div>
