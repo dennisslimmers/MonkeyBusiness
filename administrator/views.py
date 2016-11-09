@@ -10,10 +10,9 @@ def renderAdministrator(request):
     users = User.objects.all()
     purchases = []
     user = request.user
-    userid = str(user.id)
 
     with connection.cursor() as cursor:
-        cursor.execute("SELECT * FROM purchases")
+        cursor.execute("SELECT * FROM purchases INNER JOIN auth_user ON purchases.userid=auth_user.id;")
         purchases = cursor.fetchall()
 
     return render(request, "administrator.html", {"users": users,"purchases": purchases})
